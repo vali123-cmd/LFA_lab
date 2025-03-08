@@ -22,6 +22,8 @@ class DFA:
     def accepts(self, string):
         state = self.start
         for symbol in string:
+            if symbol not in self.alphabet:
+                return False
             state = self.transition(state, symbol)
         return state in self.accept
     
